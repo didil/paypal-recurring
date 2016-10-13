@@ -31,6 +31,7 @@ module PayPal
       attr_accessor :trial_length
       attr_accessor :trial_period
       attr_accessor :trial_amount
+      attr_accessor :brand_name
 
       def initialize(options = {})
         options.each {|name, value| send("#{name}=", value)}
@@ -68,7 +69,8 @@ module PayPal
           :item_category,
           :item_name,
           :item_amount,
-          :item_quantity
+          :item_quantity,
+          :brand_name
         ).merge(
           :payment_action => "Authorization",
           :no_shipping => 1,
